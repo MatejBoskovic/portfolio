@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt — Matej Bošković | Grafički dizajner, Rijeka</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Kontakt — Matej Bošković | Grafički dizajner, Rijeka">
+    <meta name="description" content="Kontaktirajte Mateja Boškovića, grafičkog dizajnera iz Rijeke. E-mail: matejboskovic.2011@gmail.com, Mob: +385 91 914 6658, Instagram: @matejboky.">
+    <meta name="keywords" content="Matej Bošković kontakt, grafički dizajner kontakt, dizajn Rijeka kontakt, matejboky, Matej Bošković email">
+    <meta name="author" content="Matej Bošković">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Kontakt — Matej Bošković | Grafički dizajner">
+    <meta property="og:description" content="Kontaktirajte Mateja Boškovića, grafičkog dizajnera iz Rijeke: matejboskovic.2011@gmail.com | +385 91 914 6658">
+    <meta property="og:image" content="assets/hand.jpg">
+    <meta property="og:site_name" content="Matej Bošković Portfolio">
+    <meta property="og:locale" content="hr_HR">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kontakt — Matej Bošković | Grafički dizajner">
+    <meta name="twitter:description" content="matejboskovic.2011@gmail.com | +385 91 914 6658 | @matejboky">
+    <meta name="twitter:image" content="assets/hand.jpg">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Kontakt — Matej Bošković",
+      "description": "Kontakt stranica grafičkog dizajnera Mateja Boškovića iz Rijeke.",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Matej Bošković",
+        "alternateName": "matejboky",
+        "jobTitle": "Grafički dizajner",
+        "email": "matejboskovic.2011@gmail.com",
+        "telephone": "+385919146658",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Rijeka",
+          "addressCountry": "HR"
+        },
+        "sameAs": ["https://instagram.com/matejboky"]
+      }
+    }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Full browser viewport width header -->
+    <header>
+        <nav class="desktop-nav">
+            <a href="index.html" class="nav-btn" id="nav-radovi">
+                <img src="assets/nav_radovi.png" alt="radovi">
+            </a>
+            <a href="kontakt.html" class="nav-btn active" id="nav-kontakt">
+                <img src="assets/nav_kontakt.png" alt="kontakt">
+            </a>
+            <a href="#" class="nav-btn" id="nav-ladica">
+                <img src="assets/nav_ladica.jpg" alt="ladica">
+            </a>
+        </nav>
+        <div class="bio-text">matej (anđelko) 
+bošković je 
+grafički dizajner 
+koji živi i radi u 
+rijeci</div>
+        <button class="mobile-hamburger-btn" id="mobile-menu-btn" aria-label="Open menu">
+            <img src="assets/hamburger_menu.jpg" alt="Menu">
+        </button>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <div class="mobile-menu-content">
+            <a href="index.html" class="nav-btn">
+                <img src="assets/nav_radovi.png" alt="radovi">
+            </a>
+            <a href="kontakt.html" class="nav-btn active">
+                <img src="assets/nav_kontakt.png" alt="kontakt">
+            </a>
+            <a href="#" class="nav-btn">
+                <img src="assets/nav_ladica.jpg" alt="ladica">
+            </a>
+        </div>
+    </div>
+
+    <main class="full-width-container">
+        <section class="contact-section-full">
+            <!-- Hand graphic starting off-screen past left browser edge on desktop, pointing up at contact info on mobile -->
+            <picture class="contact-hand-picture">
+                <source media="(max-width: 768px)" srcset="assets/hand_mobile.jpg">
+                <img src="assets/hand.jpg" class="contact-illustration-left" alt="Contact hand illustration">
+            </picture>
+            
+            <!-- Contact info links aligned to the right browser edge -->
+            <div class="contact-info-block-right">
+                <a href="mailto:matejboskovic.2011@gmail.com" id="link-email">matejboskovic.2011@gmail.com</a>
+                <a href="tel:+385919146658" id="link-phone">+385 91 914 6658</a>
+                <a href="https://instagram.com/matejboky" target="_blank" rel="noopener" id="link-instagram">@matejboky</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
