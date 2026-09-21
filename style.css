@@ -134,6 +134,30 @@ nav.desktop-nav {
     height: 54px;
 }
 
+/* X close button in top-right of mobile overlay */
+.mobile-menu-close-btn {
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    line-height: 0;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+
+.mobile-menu-close-btn img {
+    height: 36px;
+    width: auto;
+    display: block;
+}
+
+.mobile-menu-close-btn:hover {
+    opacity: 1;
+}
+
 /* Sticky Back Arrow Bar directly below header navigation buttons */
 .back-arrow-bar {
     width: 100%;
@@ -207,8 +231,8 @@ main {
 /* Hero Central Beanie Illustration Section (Radovi Page) */
 .hero-illustration-container {
     width: 100%;
-    margin-top: 15px;
-    margin-bottom: clamp(160px, 18vh, 240px);
+    margin-top: -30px;
+    margin-bottom: clamp(40px, 6vh, 80px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -217,9 +241,8 @@ main {
 }
 
 .hero-illustration-container img {
-    width: auto;
-    max-width: min(740px, 75vw);
-    max-height: min(460px, 48vh);
+    width: 100%;
+    max-width: 960px;
     height: auto;
     object-fit: contain;
     margin: 0 auto;
@@ -234,7 +257,7 @@ main {
     grid-template-columns: repeat(2, 454px);
     justify-content: center;
     grid-column-gap: 52px;
-    grid-row-gap: 104px;
+    grid-row-gap: 52px;
     margin-bottom: 100px;
     animation: fadeInUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
 }
@@ -252,10 +275,10 @@ main {
     transform: translateY(-4px);
 }
 
-/* Card Image Wrapper: Fixed dimensions preserved (aspect ratio 454 / 302) */
+/* Card Image Wrapper: Square 1:1 ratio */
 .project-img-wrapper {
     width: 100%;
-    aspect-ratio: 454 / 302;
+    aspect-ratio: 1 / 1;
     background-color: #ffffff;
     overflow: hidden;
     margin-bottom: 14px;
@@ -503,8 +526,9 @@ main {
     }
 
     .hero-illustration-container {
-        margin-top: 10px;
-        margin-bottom: 145px;
+        margin-top: 0;
+        margin-bottom: 60px;
+        min-height: calc(100svh - 280px);
     }
 
     .hero-illustration-container img {
@@ -520,7 +544,7 @@ main {
     }
 
     .project-img-wrapper {
-        aspect-ratio: 354 / 236;
+        aspect-ratio: 1 / 1;
     }
 
     .project-caption {

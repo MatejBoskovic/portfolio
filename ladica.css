@@ -1,0 +1,188 @@
+/* ============================================================
+   LADICA PAGE — Full-viewport draggable collage
+   ============================================================ */
+
+/* Override body defaults so the page never scrolls */
+body.ladica-page {
+    overflow: hidden;
+    padding-bottom: 0;
+    height: 100svh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* The draggable canvas fills everything below the header */
+#ladica-canvas {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    overflow: hidden;
+    touch-action: none; /* let JS handle all touch/pointer events */
+    cursor: default;
+    animation: fadeInUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+/* Fade-only animation for items — does NOT touch transform so --rot is preserved */
+@keyframes ladica-fade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Stagger each item's entrance slightly */
+.ladica-item:nth-child(1)  { animation: ladica-fade 1.0s ease 0.05s both; }
+.ladica-item:nth-child(2)  { animation: ladica-fade 1.0s ease 0.12s both; }
+.ladica-item:nth-child(3)  { animation: ladica-fade 1.0s ease 0.19s both; }
+.ladica-item:nth-child(4)  { animation: ladica-fade 1.0s ease 0.26s both; }
+.ladica-item:nth-child(5)  { animation: ladica-fade 1.0s ease 0.33s both; }
+.ladica-item:nth-child(6)  { animation: ladica-fade 1.0s ease 0.40s both; }
+.ladica-item:nth-child(7)  { animation: ladica-fade 1.0s ease 0.47s both; }
+.ladica-item:nth-child(8)  { animation: ladica-fade 1.0s ease 0.54s both; }
+.ladica-item:nth-child(9)  { animation: ladica-fade 1.0s ease 0.61s both; }
+.ladica-item:nth-child(10) { animation: ladica-fade 1.0s ease 0.68s both; }
+.ladica-item:nth-child(11) { animation: ladica-fade 1.0s ease 0.75s both; }
+
+/* ---- Individual draggable items ---- */
+.ladica-item {
+    position: absolute;
+    transform: rotate(var(--rot, 0deg));
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    box-shadow: 2px 6px 20px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.15s ease;
+    /* keep the initial rotation as the base so JS can offset without fighting CSS */
+}
+
+.ladica-item:active,
+.ladica-item.dragging {
+    cursor: grabbing;
+    box-shadow: 4px 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Images inside items */
+.ladica-item img,
+.ladica-item video {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: min(420px, 45vw);
+    max-height: min(360px, 45vh);
+    pointer-events: none; /* drag handled by wrapper, not media */
+    -webkit-user-drag: none;
+}
+
+/* Panoramic/wide images get a wider cap */
+.ladica-item[data-index="9"] img,
+.ladica-item[data-index="10"] img {
+    max-width: min(580px, 58vw);
+    max-height: min(220px, 26vh);
+}
+
+/* ---- Caption ---- */
+.ladica-caption {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Spline Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #000;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ---- Lightbox overlay ---- */
+#ladica-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.88);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+}
+
+#ladica-lightbox.open {
+    display: flex;
+}
+
+#ladica-lightbox-media {
+    max-width: 92vw;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#ladica-lightbox-media img,
+#ladica-lightbox-media video {
+    max-width: 92vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    display: block;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+    cursor: default;
+}
+
+#ladica-lightbox-close {
+    position: fixed;
+    top: 24px;
+    right: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10000;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+    padding: 0;
+    line-height: 0;
+}
+
+#ladica-lightbox-close img {
+    height: 36px;
+    width: auto;
+    display: block;
+}
+
+#ladica-lightbox-close:hover {
+    opacity: 1;
+}
+
+/* ============================================================
+   MOBILE overrides (≤ 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+    /* Base mobile size (fallback) */
+    .ladica-item img,
+    .ladica-item video {
+        max-width: min(190px, 50vw);
+        max-height: min(190px, 38vh);
+    }
+
+    /* Per-item size variation — makes the scatter feel organic */
+    .ladica-item[data-index="1"] video  { max-width: min(240px, 63vw); max-height: min(160px, 30vh); }
+    .ladica-item[data-index="2"] video  { max-width: min(130px, 34vw); max-height: min(210px, 42vh); }
+    .ladica-item[data-index="3"] img    { max-width: min(200px, 52vw); max-height: min(150px, 28vh); }
+    .ladica-item[data-index="4"] video  { max-width: min(160px, 42vw); max-height: min(220px, 44vh); }
+    .ladica-item[data-index="5"] img    { max-width: min(250px, 66vw); max-height: min(140px, 26vh); }
+    .ladica-item[data-index="6"] img    { max-width: min(115px, 30vw); max-height: min(175px, 35vh); }
+    .ladica-item[data-index="7"] img    { max-width: min(145px, 38vw); max-height: min(205px, 41vh); }
+    .ladica-item[data-index="8"] img    { max-width: min(175px, 46vw); max-height: min(230px, 46vh); }
+    .ladica-item[data-index="9"] img    { max-width: min(290px, 76vw); max-height: min(100px, 18vh); }
+    .ladica-item[data-index="10"] img   { max-width: min(260px, 68vw); max-height: min(115px, 20vh); }
+    .ladica-item[data-index="11"] img   { max-width: min(125px, 33vw); max-height: min(185px, 37vh); }
+
+    .ladica-caption {
+        font-size: 13px;
+        white-space: normal;
+        text-align: center;
+        width: 80%;
+        left: 10%;
+        transform: none;
+    }
+}

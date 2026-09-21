@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ladica — Matej Bošković | Grafički dizajner, Rijeka</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Ladica — Matej Bošković | Grafički dizajner, Rijeka">
+    <meta name="description" content="Ladica: manji projekti, ilustracije, fotke, grafike, pokušaji i skice — Matej Bošković, grafički dizajner iz Rijeke.">
+    <meta name="author" content="Matej Bošković">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ladica — Matej Bošković">
+    <meta property="og:description" content="Manji projekti, ilustracije, fotke, grafike, pokušaji i skice.">
+    <meta property="og:image" content="assets/ladica_05.jpg">
+    <meta property="og:site_name" content="Matej Bošković Portfolio">
+    <meta property="og:locale" content="hr_HR">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ladica.css">
+</head>
+<body class="ladica-page">
+    <!-- Full browser viewport width header -->
+    <header>
+        <nav class="desktop-nav">
+            <a href="index.html" class="nav-btn" id="nav-radovi">
+                <img src="assets/nav_radovi.png" alt="radovi">
+            </a>
+            <a href="kontakt.html" class="nav-btn" id="nav-kontakt">
+                <img src="assets/nav_kontakt.png" alt="kontakt">
+            </a>
+            <a href="ladica.html" class="nav-btn active" id="nav-ladica">
+                <img src="assets/nav_ladica.jpg" alt="ladica">
+            </a>
+        </nav>
+        <div class="bio-text">matej (anđelko) 
+bošković je 
+(grafički) dizajner 
+koji živi i radi u 
+rijeci</div>
+        <button class="mobile-hamburger-btn" id="mobile-menu-btn" aria-label="Open menu">
+            <img src="assets/hamburger_menu.jpg" alt="Menu">
+        </button>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close-btn" id="mobile-menu-close" aria-label="Zatvori izbornik"><img src="assets/x.jpg" alt="zatvori"></button>
+        <div class="mobile-menu-content">
+            <a href="index.html" class="nav-btn">
+                <img src="assets/nav_radovi.png" alt="radovi">
+            </a>
+            <a href="kontakt.html" class="nav-btn">
+                <img src="assets/nav_kontakt.png" alt="kontakt">
+            </a>
+            <a href="ladica.html" class="nav-btn active">
+                <img src="assets/nav_ladica.jpg" alt="ladica">
+            </a>
+        </div>
+    </div>
+
+    <!-- Draggable canvas — fills remaining viewport height -->
+    <div id="ladica-canvas">
+
+        <!-- Item 1: video 01 — landscape -->
+        <div class="ladica-item" data-index="1"
+             style="left:4%; top:2%; --rot:-6deg;">
+            <video src="assets/ladica_01.mp4" autoplay loop muted playsinline></video>
+        </div>
+
+        <!-- Item 2: video 02 — portrait -->
+        <div class="ladica-item" data-index="2"
+             style="left:24%; top:1%; --rot:4deg;">
+            <video src="assets/ladica_02.mp4" autoplay loop muted playsinline></video>
+        </div>
+
+        <!-- Item 3: png illustration — landscape -->
+        <div class="ladica-item" data-index="3"
+             style="left:42%; top:3%; --rot:-3deg;">
+            <img src="assets/ladica_03.png" alt="">
+        </div>
+
+        <!-- Item 4: video 04 -->
+        <div class="ladica-item" data-index="4"
+             style="left:63%; top:0%; --rot:5deg;">
+            <video src="assets/ladica_04.mp4" autoplay loop muted playsinline></video>
+        </div>
+
+        <!-- Item 5: landscape photo -->
+        <div class="ladica-item" data-index="5"
+             style="left:2%; top:42%; --rot:3deg;">
+            <img src="assets/ladica_05.jpg" alt="">
+        </div>
+
+        <!-- Item 6: portrait photo -->
+        <div class="ladica-item" data-index="6"
+             style="left:20%; top:32%; --rot:-8deg;">
+            <img src="assets/ladica_06.jpg" alt="">
+        </div>
+
+        <!-- Item 7: portrait -->
+        <div class="ladica-item" data-index="7"
+             style="left:37%; top:36%; --rot:6deg;">
+            <img src="assets/ladica_07.jpg" alt="">
+        </div>
+
+        <!-- Item 8: portrait photo -->
+        <div class="ladica-item" data-index="8"
+             style="left:53%; top:28%; --rot:-4deg;">
+            <img src="assets/ladica_08.jpg" alt="">
+        </div>
+
+        <!-- Item 9: wide panoramic -->
+        <div class="ladica-item" data-index="9"
+             style="left:5%; top:68%; --rot:2deg;">
+            <img src="assets/ladica_09.jpg" alt="">
+        </div>
+
+        <!-- Item 10: wide photo -->
+        <div class="ladica-item" data-index="10"
+             style="left:32%; top:62%; --rot:-5deg;">
+            <img src="assets/ladica_10.jpg" alt="">
+        </div>
+
+        <!-- Item 11: portrait photo -->
+        <div class="ladica-item" data-index="11"
+             style="left:68%; top:52%; --rot:7deg;">
+            <img src="assets/ladica_11.jpg" alt="">
+        </div>
+
+        <!-- Fixed caption at bottom -->
+        <p class="ladica-caption">manji projekti, ilustracije, fotke, grafike, pokušaji i skice</p>
+    </div>
+
+    <!-- Lightbox overlay -->
+    <div id="ladica-lightbox" aria-hidden="true">
+        <button id="ladica-lightbox-close" aria-label="Zatvori"><img src="assets/x.jpg" alt="zatvori"></button>
+        <div id="ladica-lightbox-media"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="ladica.js"></script>
+</body>
+</html>
